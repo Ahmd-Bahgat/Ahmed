@@ -1,19 +1,31 @@
 import { motion } from "framer-motion";
 import { Code2, Heart } from "lucide-react";
 
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  element.scrollIntoView({ behavior: "smooth" });
+};
+
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-8 border-t border-border relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-10" />
-      
+
       <div className="container relative z-10 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Logo */}
             <motion.a
               href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="flex items-center gap-2 text-foreground font-bold text-lg"
               whileHover={{ scale: 1.05 }}
             >
@@ -25,19 +37,18 @@ export const Footer = () => {
             {/* Copyright */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>© {currentYear} Ahmed Bahgat.</span>
-
             </div>
 
             {/* Quick Links */}
             <div className="flex items-center gap-6 text-sm">
-              {["About", "Projects", "Contact"].map((item) => (
-                <a
+              {["skills", "projects", "contact"].map((item) => (
+                <button
                   key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => scrollToSection(item)}
+                  className="text-muted-foreground hover:text-primary transition-colors capitalize"
                 >
                   {item}
-                </a>
+                </button>
               ))}
             </div>
           </div>

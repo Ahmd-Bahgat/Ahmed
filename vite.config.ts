@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/frontend-portfolio/", // 🔴 مهم جدًا (اسم الريبو)
   server: {
     host: "::",
     port: 8080,

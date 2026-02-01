@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Facebook, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown, Facebook, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "./ParticleBackground";
 
 const roles = [
   "BackEnd Developer",
-  "UI/UX Enthusiast",
-  "Open Source Contributor",
+  "Node.js & TypeScript ",
+  "API Architect",
   "Problem Solver",
+  "Clean Code Advocate",
+  "Always Learning",
 ];
 
 export const HeroSection = () => {
@@ -18,7 +20,7 @@ export const HeroSection = () => {
 
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
-    
+
     if (isTyping) {
       if (displayedText.length < currentRole.length) {
         const timeout = setTimeout(() => {
@@ -60,10 +62,13 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <ParticleBackground />
-      
+
       {/* Gradient Orbs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-glow-pulse" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-[128px] animate-glow-pulse" style={{ animationDelay: "1s" }} />
+      <div
+        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-[128px] animate-glow-pulse"
+        style={{ animationDelay: "1s" }}
+      />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[200px]" />
 
       {/* Grid Pattern */}
@@ -79,8 +84,23 @@ export const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
           >
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'hsl(142, 76%, 36%)' }} />
-            <span className="text-sm text-muted-foreground">Available for new projects</span>
+            {/* <span
+              className="w-2 h-2 rounded-full animate-pulse"
+              style={{ backgroundColor: "hsl(142, 76%, 36%)" }}
+            /> */}
+            {/* النقطة المتحركة مع تأثير مزدوج */}
+            <div className="relative">
+              {/* الطبقة الخارجية المتوهجة */}
+              <div className="absolute -inset-1 bg-green-500/20 rounded-full blur-sm animate-pulse"></div>
+              {/* النقطة الرئيسية */}
+              <div className="relative w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
+              {/* تأثير الانتشار */}
+              <div className="absolute -inset-1.5 border border-green-500/30 rounded-full animate-ping"></div>
+            </div>
+
+            <span className="text-sm text-muted-foreground">
+              Available for new projects
+            </span>
           </motion.div>
 
           {/* Name */}
@@ -120,8 +140,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            I craft exceptional digital experiences with clean code and pixel-perfect design. 
-            Specializing in Node.JS, TypeScript, and modern web technologies.
+            I craft exceptional digital experiences with clean code and
+            pixel-perfect design. Specializing in Node.JS, TypeScript, and
+            modern web technologies.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -147,9 +168,21 @@ export const HeroSection = () => {
             className="flex items-center justify-center gap-4"
           >
             {[
-              { icon: Github, href: "https://github.com/Ahmd-Bahgat", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Facebook, href: "https://www.facebook.com/ahmed.bahgat.elzeeky.2025", label: "Facebook" },
+              {
+                icon: Github,
+                href: "https://github.com/Ahmd-Bahgat",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "https://linkedin.com",
+                label: "LinkedIn",
+              },
+              {
+                icon: Facebook,
+                href: "https://www.facebook.com/ahmed.bahgat.elzeeky.2025",
+                label: "Facebook",
+              },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -180,7 +213,9 @@ export const HeroSection = () => {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-muted-foreground"
         >
-          <span className="text-xs font-mono uppercase tracking-widest">Scroll</span>
+          <span className="text-xs font-mono uppercase tracking-widest">
+            Scroll
+          </span>
           <ArrowDown className="w-4 h-4" />
         </motion.div>
       </motion.div>

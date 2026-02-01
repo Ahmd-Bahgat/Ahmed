@@ -194,7 +194,7 @@ export const ContactSection = () => {
                 onSubmit={handleSubmit}
                 className="glass-card p-8 rounded-2xl space-y-6"
               >
-                <div className="space-y-4">
+                <div className="space-y-8">
                   <div>
                     <label
                       htmlFor="name"

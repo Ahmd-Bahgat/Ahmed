@@ -9,10 +9,11 @@ const techStack = [
   { name: "MongoDB", icon: "🍃" },
   { name: "Mongoose", icon: "🍃" },
   { name: "PostgreSQL", icon: "🐘" },
-  { name: "Docker", icon: "🐳" },
   { name: "Prisma", icon: "⚡"},
+  { name: "Docker", icon: "🐳" },
   { name: "Git", icon: "📦" },
   { name: "GitHub", icon: "🐙" },
+  { name: "Redis", icon: "🟥" },
   { name: "JWT", icon: "🔐" },
   { name: "REST API", icon: "🔗" },
 ];

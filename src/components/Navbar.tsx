@@ -46,13 +46,19 @@ export const Navbar = () => {
             {/* Logo */}
             <motion.a
               href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="flex items-center gap-2 text-foreground font-bold text-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Code2 className="w-6 h-6 text-primary" />
-              <span className="font-mono">Ahmed</span>
-              <span className="text-gradient">.</span>
+              <img
+                src="/logo.png" 
+                alt="Ahmed"
+                className="h-10 w-auto sm:h-12 md:h-20 lg:h-24"
+              />
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -93,7 +99,11 @@ export const Navbar = () => {
               className="md:hidden p-2 text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
